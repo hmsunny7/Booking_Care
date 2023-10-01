@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" type="text/css" href="css/read.css" />
+  <title>Read</title>
+</head>
+<body>
+    <div class="topnav">
+  <a href="/">Home</a>
+  <a class="active" href="/read">Read</a>
+  <a href="/crud">Create</a>
+  </div>
+  <script src="js/randomColor.js"></script>
+  <p>Hello From Read</p>
+  <div >
+    <table class="w3-table-all">
+      <thead>
+        <tr onClick='changeColor()' class="w3-light-grey w3-hover-red">
+          <th>Email</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Address</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <div>
+      <% for(let i=0; i< data.length ; i++) { %>
+        <tr id="random"td onClick='changeColor()' class="w3-hover-green">
+          <td><%= data[i].email %></td>
+          <td><%= data[i].firstName %></td>
+          <td><%= data[i].lastName %></td>
+          <td><%= data[i].address %></td>
+          <td>
+            <a href="/edit?id=<%=data[i].id%>"><button class="btn-edit">Edit</button></a>
+            <a href="/delete?id=<%=data[i].id%>"><button class="btn-delete">Delete</button></a>
+          </td>
+        </tr><% } %>
+      </div>
+    </table>
+  </div>
+</body>
+
+</html>
